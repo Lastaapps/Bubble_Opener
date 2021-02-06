@@ -1,0 +1,65 @@
+<!--
+  ~    Copyright 2021, Petr Laštovička as Lasta apps, All rights reserved
+  ~
+  ~     This file is part of TheBubble Opener.
+  ~
+  ~     TheBubble Opener is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     TheBubble Opener is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with TheBubble Opener.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<resources>
+    <string name="app_name">Bubble Opener</string>
+
+    <string name="bubble_title">Bubble 💭</string>
+    <string name="bubble_text">Welcome in my bubble!</string>
+
+    <string name="activity_text">Click below to open a bubble!</string>
+    <string name="activity_button">Click me!</string>
+
+    <string name="notification_channel_name">Bubbles</string>
+    <string name="notification_name">Here comes the bubble</string>
+    <string name="notification_message">Have a wonderful day!</string>
+    <string name="notification_label">The bubble</string>
+
+
+    <string name="thank_you">Thank you for choosing the Bubble Opener!</string>
+    <string name="rate">Rate</string>
+    <string name="share">Share</string>
+    <string name="source_code">Source code</string>
+    <string name="other_apps">Other apps</string>
+    <string name="thanks_review">Thank you for your time!😃</string>
+    <string name="share_message">Open your bubbles faster! (Android 11+)</string>
+    <string name="warning_text">Bubbles disabled! \n Click to fix.</string>
+    <string name="warning_redirect">Now, enable bubbles</string>
+    <string name="open_source_libraries">Open source libraries</string>
+    <string name="add_shortcut">Add home screen shortcut</string>
+
+    <string name="licenses_title">Open source libraries</string>
+
+    <string name="pinned_shortcut_text">Open a bubble</string>
+    <string name="shortcut_short_text">Click me</string>
+    <string name="shortcut_long_text">Open a bubble</string>
+
+    <string name="menu_feedback">Send Feedback</string>
+    <string name="policy_nutshell">In a nutshell, we collect only some basic anonymous features usage data and app crashes using the Firebase services. This is necessary to maintain the app well. Just check the code yourself later ;)</string>
+    <string name="policy_label">Privacy Policy</string>
+    <string name="policy_have_read">I have read them</string>
+    <string name="policy_agree">Agree</string>
+    <string name="policy_read_privacy_policy">Read Privacy Policy</string>
+    <string name="warning_content_description">Warning - bubble inaccessible</string>
+    <string name="feedback_nothing_found">No app found to send the feedback.</string>
+    <string name="menu_policy">Privacy policy</string>
+    <string name="policy_licensed">Licensed under GNU GPL 3</string>
+
+</resources>

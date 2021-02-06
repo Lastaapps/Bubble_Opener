@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~    Copyright 2021, Petr Laštovička as Lasta apps, All rights reserved
+  ~
+  ~     This file is part of TheBubble Opener.
+  ~
+  ~     TheBubble Opener is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     TheBubble Opener is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with TheBubble Opener.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:constraint_referenced_ids="thanks,buttons_flow,social_flow"
+        app:flow_verticalGap="@dimen/text_spacing"
+        app:layout_constraintBottom_toTopOf="@+id/author"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/thanks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/thank_you" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/buttons_flow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:constraint_referenced_ids="rate,share"
+        app:flow_horizontalGap="8dp" />
+
+    <Button
+        android:id="@+id/rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rate" />
+
+    <Button
+        android:id="@+id/share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/share" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/social_flow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="facebook,github,playStore,telegram"
+        app:flow_horizontalGap="8dp"
+        tools:layout_editor_absoluteX="130dp"
+        tools:layout_editor_absoluteY="446dp" />
+
+    <ImageView
+        android:id="@+id/facebook"
+        android:layout_width="@dimen/social_icons_size"
+        android:layout_height="@dimen/social_icons_size"
+        android:contentDescription="@string/content_description_facebook"
+        app:srcCompat="@drawable/ic_facebook" />
+
+    <ImageView
+        android:id="@+id/github"
+        android:layout_width="@dimen/social_icons_size"
+        android:layout_height="@dimen/social_icons_size"
+        android:contentDescription="@string/content_description_github_project"
+        app:srcCompat="@drawable/ic_github" />
+
+    <ImageView
+        android:id="@+id/playStore"
+        android:layout_width="@dimen/social_icons_size"
+        android:layout_height="@dimen/social_icons_size"
+        android:contentDescription="@string/content_description_play_store"
+        app:srcCompat="@drawable/ic_play_store" />
+
+    <ImageView
+        android:id="@+id/telegram"
+        android:layout_width="@dimen/social_icons_size"
+        android:layout_height="@dimen/social_icons_size"
+        android:contentDescription="@string/content_description_telegram"
+        app:srcCompat="@drawable/ic_telegram" />
+
+    <cz.lastaapps.author.AuthorDateView
+        android:id="@+id/author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/bottom_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="@string/developer_name_date" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~    Copyright 2021, Petr Laštovička as Lasta apps, All rights reserved
+  ~
+  ~     This file is part of TheBubble Opener.
+  ~
+  ~     TheBubble Opener is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     TheBubble Opener is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with TheBubble Opener.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<resources>
+    <string name="app_name">Abridor de burbujas</string>
+    <string name="warning_text">¡Burbujas desactivadas! \n Haga clic para corregir.</string>
+    <string name="bubble_title">Burbuja 💭</string>
+    <string name="bubble_text">¡Bienvenidos a mi burbuja!</string>
+    <string name="activity_text">¡Haga clic a continuación para abrir una burbuja!</string>
+    <string name="policy_nutshell">En pocas palabras, solo recopilamos algunos datos de uso de funciones anónimas básicas y fallos de aplicaciones mediante los servicios de Firebase. Esto es necesario para mantener bien la aplicación. Verifique el código usted mismo más tarde ;)</string>
+    <string name="activity_button">¡Haz click en mi!</string>
+    <string name="notification_channel_name">Burbujas</string>
+    <string name="notification_name">Aquí viene la burbuja</string>
+    <string name="notification_message">¡Ten un día maravilloso!</string>
+    <string name="notification_label">La burbuja</string>
+    <string name="thank_you">¡Gracias por elegir el abridor de burbujas!</string>
+    <string name="rate">Calificar</string>
+    <string name="share">Compartir</string>
+    <string name="source_code">Código fuente</string>
+    <string name="other_apps">Otras aplicaciones</string>
+    <string name="thanks_review">¡Gracias por tu tiempo! 😃</string>
+    <string name="share_message">¡Abre tus burbujas más rápido! (Android 11+)</string>
+    <string name="warning_redirect">Ahora, habilita las burbujas</string>
+    <string name="open_source_libraries">Bibliotecas de código abierto</string>
+    <string name="add_shortcut">Agregar acceso directo a la pantalla de inicio</string>
+    <string name="licenses_title">Bibliotecas de código abierto</string>
+    <string name="pinned_shortcut_text">Abre una burbuja</string>
+    <string name="shortcut_short_text">Haz click en mi</string>
+    <string name="shortcut_long_text">Abre una burbuja</string>
+    <string name="menu_feedback">Enviar comentarios</string>
+    <string name="policy_label">Política de privacidad</string>
+    <string name="policy_have_read">Los he leído</string>
+    <string name="policy_agree">acordar</string>
+    <string name="policy_read_privacy_policy">Leer política de privacidad</string>
+    <string name="warning_content_description">Advertencia - burbuja inaccesible</string>
+    <string name="feedback_nothing_found">No se encontró ninguna aplicación para enviar comentarios.</string>
+    <string name="menu_policy">Política de privacidad</string>
+    <string name="policy_licensed">Licenciado bajo GNU GPL 3</string>
+</resources>

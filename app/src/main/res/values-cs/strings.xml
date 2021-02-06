@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~    Copyright 2021, Petr Laštovička as Lasta apps, All rights reserved
+  ~
+  ~     This file is part of TheBubble Opener.
+  ~
+  ~     TheBubble Opener is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     TheBubble Opener is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with TheBubble Opener.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<resources>
+    <string name="app_name">Bubla</string>
+    <string name="bubble_title">Bublova bublina 💭</string>
+    <string name="bubble_text">Vítejte u mě v bublině!</string>
+    <string name="activity_text">Klikni níže a otevři bublinu!</string>
+    <string name="activity_button">Klikni na mě!</string>
+    <string name="notification_channel_name">Bubliny</string>
+    <string name="notification_name">Bublina se už valí</string>
+    <string name="notification_message">Nádherný den přeji!</string>
+    <string name="notification_label">Bubla</string>
+    <string name="thank_you">Děkujeme, že jste si vybrali Bublu!</string>
+    <string name="rate">Ohodnotit</string>
+    <string name="share">Sdílet</string>
+    <string name="source_code">Zdrojový kód</string>
+    <string name="other_apps">Další aplikace</string>
+    <string name="thanks_review">Moc děkuji, že jste si udělali čas!😃</string>
+    <string name="share_message">Otevři bubliny rychleji! (Android 11+)</string>
+    <string name="warning_text">Bubliny zakázány! \n Kliknutím opravte.</string>
+    <string name="warning_redirect">Nyní povolte bubliny</string>
+    <string name="open_source_libraries">Licence svobodného softwaru</string>
+    <string name="licenses_title">Licence svobodného softwaru</string>
+    <string name="pinned_shortcut_text">Otevřít bublinu</string>
+    <string name="shortcut_short_text">Klikni na mě</string>
+    <string name="shortcut_long_text">Otevřít bublinu</string>
+    <string name="menu_feedback">Zpětná vazba</string>
+    <string name="policy_label">Zásady ochrany osobních údajů</string>
+    <string name="menu_policy">Zásady ochrany osobních údajů</string>
+    <string name="policy_have_read">Přečetl jsem si je</string>
+    <string name="policy_agree">Souhlasím</string>
+    <string name="policy_read_privacy_policy">Přečíst si Zásady ochrany osobních údajů</string>
+    <string name="warning_content_description">Varování - bubliny nedostupné</string>
+    <string name="feedback_nothing_found">Nebyla nalezena aplikace pro odeslání zpětné vazby</string>
+    <string name="policy_licensed">Licencováno pod GNU GPL 3</string>
+    <string name="policy_nutshell">Prostě řečeno, sbíráme pouze základní anonymní informace o využití funkcí aplikace a o jejích chybách a pádech pomocí služby Firebase. Údaje jsou nutné k správnému vývoji aplikace. Klidně se mrkněte do zdrojového kódu ;)</string>
+    <string name="add_shortcut">Přidat zástupce na domovskou obrazovku</string>
+</resources>

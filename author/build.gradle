@@ -19,12 +19,8 @@
  */
 
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'kotlin-android'
-
-    id 'com.google.android.gms.oss-licenses-plugin'
-    id 'com.google.gms.google-services'
-    id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -32,13 +28,15 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "cz.lastaapps.bubble"
-        minSdkVersion 30
+        minSdkVersion 17
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -52,6 +50,9 @@ android {
         }
     }
     compileOptions {
+        // Flag to enable support for the new language APIs
+        coreLibraryDesugaringEnabled true
+
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -62,21 +63,14 @@ android {
 
 dependencies {
 
-    implementation project(":author")
     implementation project(":lastaapps:common")
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:$desugar_version"
+
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation "androidx.core:core-ktx:$core_version"
-    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
-
-    implementation "com.google.android.gms:play-services-oss-licenses:$oss_licenses_version"
     implementation "com.google.android.material:material:$material_version"
-    implementation "com.google.android.play:core-ktx:$play_version"
-
-    implementation platform("com.google.firebase:firebase-bom:$firebase_bom_version")
-    implementation "com.google.firebase:firebase-analytics-ktx"
-    implementation "com.google.firebase:firebase-crashlytics-ktx"
 
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$androidx_junit_version"

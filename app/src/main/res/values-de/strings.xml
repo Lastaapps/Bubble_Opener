@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~    Copyright 2021, Petr Laštovička as Lasta apps, All rights reserved
+  ~
+  ~     This file is part of TheBubble Opener.
+  ~
+  ~     TheBubble Opener is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     TheBubble Opener is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with TheBubble Opener.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  -->
+
+<resources>
+    <string name="app_name">Blasenöffner</string>
+    <string name="bubble_title">Die Blase 💭</string>
+    <string name="bubble_text">Willkommen in meiner Blase!</string>
+    <string name="activity_text">Klicken Sie unten, um eine Blase zu öffnen!</string>
+    <string name="activity_button">Klick mich!</string>
+    <string name="notification_channel_name">Blasen</string>
+    <string name="notification_name">Hier kommt die Blase</string>
+    <string name="notification_message">Einen schönen Tag noch!</string>
+    <string name="notification_label">Die Blase</string>
+    <string name="thank_you">Vielen Dank, dass Sie sich für den Bubble Opener entschieden haben!</string>
+    <string name="rate">Bewerten</string>
+    <string name="share">Teilen</string>
+    <string name="source_code">Quellcode</string>
+    <string name="other_apps">Andere Apps</string>
+    <string name="thanks_review">Vielen Dank für Ihre Zeit! 😃</string>
+    <string name="share_message">Öffne deine Blasen schneller! (Android 11+)</string>
+    <string name="warning_text">Blasen deaktiviert! \n Zum Beheben klicken.</string>
+    <string name="warning_redirect">Aktivieren Sie jetzt Blasen</string>
+    <string name="open_source_libraries">Open Source-Hinweise</string>
+    <string name="add_shortcut">Verknüpfung zum Startbildschirm hinzufügen</string>
+    <string name="licenses_title">Open Source-Hinweise</string>
+    <string name="pinned_shortcut_text">Öffne eine Blase</string>
+    <string name="shortcut_short_text">Klick mich</string>
+    <string name="shortcut_long_text">Öffne eine Blase</string>
+    <string name="menu_feedback">Feedback</string>
+    <string name="policy_label">Datenschutz-Bestimmungen</string>
+    <string name="policy_have_read">Ich habe sie gelesen</string>
+    <string name="policy_agree">Zustimmen</string>
+    <string name="policy_read_privacy_policy">Lesen Sie die Datenschutzbestimmungen</string>
+    <string name="warning_content_description">Warnung - Blase nicht zugänglich</string>
+    <string name="feedback_nothing_found">Keine App gefunden, um das Feedback zu senden.</string>
+    <string name="menu_policy">Datenschutz-Bestimmungen</string>
+    <string name="policy_licensed">Lizenziert unter GNU GPL 3</string>
+    <string name="policy_nutshell">Einfach ausgedrückt, wir sammeln nur grundlegende anonyme Informationen über die Verwendung von Anwendungsfunktionen und deren Fehler und Abstürze mit dem Firebase-Dienst. Die Daten sind für die ordnungsgemäße Entwicklung erforderlich der Anwendung. Fühlen Sie sich frei, einen Blick auf den Quellcode zu werfen ;)</string>
+</resources>
