@@ -70,7 +70,7 @@ class BubbleActivity : FeedbackActivity() {
         findViewById<ImageView>(R.id.github).setOnClickListener {
             Log.i(TAG, "Button clicked Github repo")
 
-            Communication.openProjectsGithub(this, "bubble-opener")
+            Communication.openProjectsGithub(this, "bubble_opener")
 
             FirebaseEvents(this).buttonLastaRepo()
         }
