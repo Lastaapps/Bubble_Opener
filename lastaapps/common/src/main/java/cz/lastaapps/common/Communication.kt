@@ -1,20 +1,20 @@
 /*
  *    Copyright 2021, Petr Laštovička as Lasta apps, All rights reserved
  *
- *     This file is part of TheBubble Opener.
+ *     This file is part of The Bubble Opener.
  *
- *     TheBubble Opener is free software: you can redistribute it and/or modify
+ *     The Bubble Opener is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
  *
- *     TheBubble Opener is distributed in the hope that it will be useful,
+ *     The Bubble Opener is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with TheBubble Opener.  If not, see <https://www.gnu.org/licenses/>.
+ *     along with The Bubble Opener.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 
@@ -34,13 +34,11 @@ object Communication {
     private const val facebookUrl = "https://www.facebook.com/lastaapps/"
     private const val githubUrl = "https://github.com/lastaapps/"
     private const val telegramUrl = "https://t.me/lasta_apps"
+    private const val playStoreUrl = "https://play.google.com/store/apps/dev?id=8043580628539311707"
 
-    //TODO app play store link
-    private const val playStoreUrl =
-        "https://play.google.com/store/apps/dev?id=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    fun openFacebook(context: Context) = openFacebookPage(context, facebookUrl)
 
-    fun openFacebook(context: Context) {
-        val url = facebookUrl
+    fun openFacebookPage(context: Context, url: String) {
         var uri = Uri.parse(url)
         try {
             val applicationInfo =
@@ -56,7 +54,11 @@ object Communication {
 
     fun openGithub(context: Context) = openUrl(context, githubUrl)
 
-    fun openProjectsGithub(context: Context, name: String) = openUrl(context, "$githubUrl$name/")
+    fun openProjectsGithub(context: Context, name: String) =
+        openUrl(context, "$githubUrl$name/")
+
+    fun openProjectsCommits(context: Context, name: String) =
+        openUrl(context, "$githubUrl$name/commits/")
 
     fun openTelegram(context: Context) = openUrl(context, telegramUrl)
 
@@ -126,11 +128,12 @@ object Communication {
             return LayerDrawable(arrayOf(fDrawable, bDrawable))
         }
 
-        private fun loadDrawable(context: Context, id: Int, tint: Int?) =
-            VectorDrawableCompat.create(context.resources, id, context.theme)!!.apply {
+        private fun loadDrawable(context: Context, id: Int, tint: Int?): VectorDrawableCompat {
+            return VectorDrawableCompat.create(context.resources, id, context.theme)!!.apply {
                 tint?.let {
                     setTint(it)
                 }
             }
+        }
     }
 }

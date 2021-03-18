@@ -1,25 +1,26 @@
 /*
  *    Copyright 2021, Petr Laštovička as Lasta apps, All rights reserved
  *
- *     This file is part of TheBubble Opener.
+ *     This file is part of The Bubble Opener.
  *
- *     TheBubble Opener is free software: you can redistribute it and/or modify
+ *     The Bubble Opener is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
  *
- *     TheBubble Opener is distributed in the hope that it will be useful,
+ *     The Bubble Opener is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with TheBubble Opener.  If not, see <https://www.gnu.org/licenses/>.
+ *     along with The Bubble Opener.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 
 package cz.lastaapps.bubble
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.PendingIntent
 import android.content.Context
@@ -96,6 +97,7 @@ object Notifier {
     /**creates and posts a bubble notification*/
     private fun createNotification(context: Context) {
 
+        @SuppressLint("ObsoleteSdkInt")
         //the main icon, should be adaptive
         val icon = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
             IconCompat.createWithResource(context, R.mipmap.persons_face)
@@ -121,6 +123,7 @@ object Notifier {
 
         ShortcutManagerCompat.pushDynamicShortcut(context, shortcut)
 
+        @SuppressLint("ObsoleteSdkInt")
         //metadata for a bubble
         val bubbleDataBuilder = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
             NotificationCompat.BubbleMetadata.Builder(shortcutId) else
@@ -167,7 +170,7 @@ object Notifier {
             context,
             Random.nextInt(10000) + 1000,
             intent,
-            PendingIntent.FLAG_UPDATE_CURRENT
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
     /**@return Intent for the class given*/

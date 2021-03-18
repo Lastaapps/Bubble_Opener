@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?><!--
   ~    Copyright 2021, Petr Laštovička as Lasta apps, All rights reserved
   ~
-  ~     This file is part of TheBubble Opener.
+  ~     This file is part of The Bubble Opener.
   ~
-  ~     TheBubble Opener is free software: you can redistribute it and/or modify
+  ~     The Bubble Opener is free software: you can redistribute it and/or modify
   ~     it under the terms of the GNU General Public License as published by
   ~     the Free Software Foundation, either version 3 of the License, or
   ~     (at your option) any later version.
   ~
-  ~     TheBubble Opener is distributed in the hope that it will be useful,
+  ~     The Bubble Opener is distributed in the hope that it will be useful,
   ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
   ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   ~     GNU General Public License for more details.
   ~
   ~     You should have received a copy of the GNU General Public License
-  ~     along with TheBubble Opener.  If not, see <https://www.gnu.org/licenses/>.
+  ~     along with The Bubble Opener.  If not, see <https://www.gnu.org/licenses/>.
   ~
   -->
 
@@ -26,19 +26,29 @@
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/left_flow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:constraint_referenced_ids="warning_flow,flow,shortcut"
+        app:flow_verticalGap="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/middle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.helper.widget.Flow
         android:id="@+id/warning_flow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
         android:orientation="vertical"
         android:visibility="gone"
         app:constraint_referenced_ids="warning_image,warning_text"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintBottom_toTopOf="@+id/flow"
-        app:layout_constraintEnd_toStartOf="@+id/middle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
+        tools:layout_editor_absoluteX="318dp"
+        tools:layout_editor_absoluteY="101dp"
+        tools:visibility="gone" />
 
     <ImageView
         android:id="@+id/warning_image"
@@ -61,10 +71,8 @@
         android:orientation="vertical"
         app:constraint_referenced_ids="label,button"
         app:flow_verticalGap="@dimen/text_spacing"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/middle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/warning_flow" />
+        tools:layout_editor_absoluteX="121dp"
+        tools:layout_editor_absoluteY="336dp" />
 
     <TextView
         android:id="@+id/label"
@@ -83,33 +91,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_shortcut"
-        app:layout_constraintBottom_toTopOf="@+id/licenses"
+        tools:layout_editor_absoluteX="469dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/right_flow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:constraint_referenced_ids="licenses,author"
+        app:flow_verticalGap="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/middle"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/licenses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
         android:text="@string/open_source_libraries"
-        app:layout_constraintBottom_toTopOf="@+id/author"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/middle"
-        app:layout_constraintTop_toBottomOf="@+id/shortcut" />
+        tools:layout_editor_absoluteX="595dp" />
 
     <cz.lastaapps.author.AuthorDateView
         android:id="@+id/author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/bottom_margin"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/middle"
-        app:layout_constraintTop_toBottomOf="@+id/licenses"
+        tools:layout_editor_absoluteX="136dp"
+        tools:layout_editor_absoluteY="376dp"
         tools:text="@string/developer_name" />
 
     <androidx.constraintlayout.widget.Guideline

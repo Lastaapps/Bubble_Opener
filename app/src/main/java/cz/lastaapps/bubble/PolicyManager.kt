@@ -1,20 +1,20 @@
 /*
  *    Copyright 2021, Petr Laštovička as Lasta apps, All rights reserved
  *
- *     This file is part of TheBubble Opener.
+ *     This file is part of The Bubble Opener.
  *
- *     TheBubble Opener is free software: you can redistribute it and/or modify
+ *     The Bubble Opener is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
  *
- *     TheBubble Opener is distributed in the hope that it will be useful,
+ *     The Bubble Opener is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with TheBubble Opener.  If not, see <https://www.gnu.org/licenses/>.
+ *     along with The Bubble Opener.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 
@@ -26,15 +26,21 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import android.webkit.WebView
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.time.*
+
 
 class PolicyManager(context: Context) {
 
@@ -67,14 +73,17 @@ class PolicyManager(context: Context) {
 
 /**Asks user to agree the privacy policy*/
 @SuppressLint("InflateParams")
-class PolicyDialog(context: Context) : BottomSheetDialog(context) {
+class PolicyDialog : BottomSheetDialogFragment() {
 
     companion object {
-        private val TAG = PolicyDialog::class.simpleName
+        val TAG get() = PolicyDialog::class.simpleName
     }
 
-    init {
-
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         Log.i(TAG, "Creating policy dialog")
 
         val root = LayoutInflater.from(context).inflate(R.layout.privacy_policy, null, false)
@@ -85,7 +94,7 @@ class PolicyDialog(context: Context) : BottomSheetDialog(context) {
 
         //shows policy
         readPolicy.setOnClickListener {
-            context.startActivity(Intent(context, ShowPolicesActivity::class.java))
+            requireContext().startActivity(Intent(context, ShowPolicesActivity::class.java))
         }
 
         //enables/disables agree button
@@ -98,12 +107,29 @@ class PolicyDialog(context: Context) : BottomSheetDialog(context) {
 
         //agrees to the policy
         agree.setOnClickListener {
-            PolicyManager(context).agreed()
-            cancel()
+            PolicyManager(requireContext()).agreed()
+            dismiss()
         }
 
-        setContentView(root)
-        setCancelable(false)
+        isCancelable = false
+
+        return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        view.viewTreeObserver.addOnGlobalLayoutListener(object : OnGlobalLayoutListener {
+            override fun onGlobalLayout() {
+                view.viewTreeObserver.removeOnGlobalLayoutListener(this)
+
+                val bottomSheet =
+                    requireDialog().findViewById<View>(com.google.android.material.R.id.design_bottom_sheet) as FrameLayout
+
+                val behavior: BottomSheetBehavior<*> = BottomSheetBehavior.from(bottomSheet)
+                behavior.state = BottomSheetBehavior.STATE_EXPANDED
+                behavior.peekHeight = 0
+            }
+        })
     }
 }
 

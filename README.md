@@ -7,7 +7,7 @@ conversations quicker!
 
 It can serve as an example of 'How to implement the bubbles' or shortcuts.
 
-[Play Store link](TODO) - TODO
+[Play Store link](https://play.google.com/store/apps/details?id=cz.lastaapps.bubble) - TODO
 
 ### Notice
 
