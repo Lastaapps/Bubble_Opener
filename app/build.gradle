@@ -35,11 +35,24 @@ android {
         applicationId "cz.lastaapps.bubble"
         minSdkVersion 30
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        versionCode 10001
+        versionName "1.0.1"
+
+        resConfigs "en", "cs", "de", "es"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    /*
+    signingConfigs{
+        key {
+            keyAlias ''
+            keyPassword ''
+            storeFile file('')
+            storePassword ''
+        }
+    }
+    */
 
     buildTypes {
         debug {
@@ -47,10 +60,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         release {
-            minifyEnabled false
+            //signingConfig signingConfigs.key
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

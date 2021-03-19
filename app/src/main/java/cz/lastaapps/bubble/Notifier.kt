@@ -114,7 +114,7 @@ object Notifier {
         val shortcut = ShortcutInfoCompat.Builder(context, shortcutId)
             .setLongLived(true)
             .setLocusId(LocusIdCompat(shortcutId))
-            .setIntent(createIntent(context, BubbleActivity::class))
+            .setIntent(createIntent(context, DummyShowNotificationActivity::class))
             .setShortLabel(context.getString(R.string.notification_label))
             .setIcon(icon)
             .setPerson(person)
@@ -125,16 +125,17 @@ object Notifier {
 
         @SuppressLint("ObsoleteSdkInt")
         //metadata for a bubble
-        val bubbleDataBuilder = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
-            NotificationCompat.BubbleMetadata.Builder(shortcutId) else
-            NotificationCompat.BubbleMetadata.Builder(createPending(context, shortcut.intent), icon)
+        val bubbleDataBuilder = NotificationCompat.BubbleMetadata.Builder(
+            createPending(context, createIntent(context, BubbleActivity::class)), icon
+        )
 
         val bubbleData: NotificationCompat.BubbleMetadata =
-            bubbleDataBuilder
-                .setAutoExpandBubble(true)
-                .setSuppressNotification(true)
-                .setDesiredHeight(600)
-                .build()
+            with(bubbleDataBuilder) {
+                setAutoExpandBubble(true)
+                setSuppressNotification(true)
+                setDesiredHeight(1024)
+                build()
+            }
 
         //text shows in a bubbles bubble or in a notification
         val message = NotificationCompat.MessagingStyle.Message(

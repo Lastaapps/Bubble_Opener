@@ -30,8 +30,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 10005
-        versionName "1.0.5"
+        versionCode 10006
+        versionName "1.0.6"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -40,18 +40,16 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    signingConfigs {
-        buildTypes {
-            debug {
-                buildConfigField "java.lang.Long", "BUILD_DATE", "" + ZonedDateTime.now().toInstant().epochSecond + "L"
-            }
-            release {
-                buildConfigField "java.lang.Long", "BUILD_DATE", "" + ZonedDateTime.now().toInstant().epochSecond + "L"
-            }
+    buildTypes {
+        debug {
+            buildConfigField "java.lang.Long", "BUILD_DATE", "" + ZonedDateTime.now().toInstant().epochSecond + "L"
+        }
+        release {
+            buildConfigField "java.lang.Long", "BUILD_DATE", "" + ZonedDateTime.now().toInstant().epochSecond + "L"
         }
     }
     compileOptions {

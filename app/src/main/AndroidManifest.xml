@@ -42,7 +42,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BubbleOpener">
 
-        <activity android:name=".ShowPolicesActivity" />
+        <activity
+            android:name=".ShowPolicesActivity"
+            android:exported="false" />
 
         <activity
             android:name=".DummyShowNotificationActivity"
@@ -71,6 +73,7 @@
 
         <activity
             android:name=".BubbleActivity"
+            android:exported="true"
             android:theme="@style/Theme.SplashScreen"
             android:allowEmbedded="true"
             android:documentLaunchMode="always"
