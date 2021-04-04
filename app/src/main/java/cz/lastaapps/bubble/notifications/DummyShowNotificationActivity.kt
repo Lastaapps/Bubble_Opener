@@ -15,9 +15,36 @@
  *
  *     You should have received a copy of the GNU General Public License
  *     along with The Bubble Opener.  If not, see <https://www.gnu.org/licenses/>.
- *  
+ *
  */
 
-include ':lastaapps:common'
-include ':app'
-rootProject.name = "Bubble Opener"
+package cz.lastaapps.bubble.notifications
+
+import android.os.Bundle
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import cz.lastaapps.bubble.firebase.FirebaseEvents
+
+/**Only an activity can be opened from a shortcut, so this activity is needed to show a bubble
+ * This activity is fully transparent
+ */
+class DummyShowNotificationActivity : AppCompatActivity() {
+
+    companion object {
+        private val TAG get() = DummyShowNotificationActivity::class.simpleName
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        Log.i(TAG, "Creating activity")
+
+        //posts notification
+        Notifier.notify(this)
+
+        //notifies Firebase
+        FirebaseEvents(this).notificationFromShortcut()
+
+        finish()
+    }
+}

@@ -18,7 +18,7 @@
  *
  */
 
-package cz.lastaapps.bubble
+package cz.lastaapps.bubble.notifications
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -35,19 +35,22 @@ import androidx.core.content.LocusIdCompat
 import androidx.core.content.pm.ShortcutInfoCompat
 import androidx.core.content.pm.ShortcutManagerCompat
 import androidx.core.graphics.drawable.IconCompat
+import cz.lastaapps.bubble.BubbleActivity
+import cz.lastaapps.bubble.MainActivity
+import cz.lastaapps.bubble.R
 import kotlin.random.Random
 import kotlin.reflect.KClass
 
 /**Post notification, which can be transformed into a bubble*/
 object Notifier {
 
-    private val TAG = Notifier::class.simpleName
+    private val TAG get() = Notifier::class.simpleName
 
     //notification properties
-    val channelId = "channel"
-    val notificationId = 42069
-    val shortcutId = "notification_shortcut"
-    fun getChannelName(context: Context) =
+    private const val channelId = "channel"
+    private const val notificationId = 42069
+    private const val shortcutId = "notification_shortcut"
+    private fun getChannelName(context: Context) =
         context.getString(R.string.notification_channel_name)
 
 

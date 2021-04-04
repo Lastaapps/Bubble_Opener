@@ -115,7 +115,7 @@
         android:text="@string/open_source_libraries"
         tools:layout_editor_absoluteX="595dp" />
 
-    <cz.lastaapps.author.AuthorDateView
+    <cz.lastaapps.bubble.views.AuthorDateView
         android:id="@+id/author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

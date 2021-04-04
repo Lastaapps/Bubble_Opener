@@ -28,13 +28,15 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import com.google.android.play.core.review.ReviewManagerFactory
+import cz.lastaapps.bubble.core.FeedbackActivity
+import cz.lastaapps.bubble.firebase.FirebaseEvents
 import cz.lastaapps.common.Communication
 
 /**The content of a bubble*/
 class BubbleActivity : FeedbackActivity() {
 
     companion object {
-        private val TAG = BubbleActivity::class.simpleName
+        private val TAG get() = BubbleActivity::class.simpleName
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

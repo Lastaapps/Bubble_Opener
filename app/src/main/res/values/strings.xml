@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~    Copyright 2021, Petr Laštovička as Lasta apps, All rights reserved
   ~
@@ -43,7 +44,7 @@
     <string name="warning_text">Bubbles disabled! \n Click to fix.</string>
     <string name="warning_redirect">Now, enable bubbles</string>
     <string name="open_source_libraries">Open source libraries</string>
-    <string name="add_shortcut">Add home screen shortcut</string>
+    <string name="add_shortcut">Add a home screen shortcut</string>
 
     <string name="licenses_title">Open source libraries</string>
 
@@ -52,6 +53,9 @@
     <string name="shortcut_long_text">Open a bubble</string>
 
     <string name="menu_feedback">Send Feedback</string>
+    <string name="menu_policy">Privacy policy</string>
+    <string name="menu_explain">Manual</string>
+
     <string name="policy_nutshell">In a nutshell, we collect only some basic anonymous features usage data and app crashes using the Firebase services. This is necessary to maintain the app well. Just check the code yourself later ;)</string>
     <string name="policy_label">Privacy Policy</string>
     <string name="policy_have_read">I have read them</string>
@@ -59,7 +63,27 @@
     <string name="policy_read_privacy_policy">Read Privacy Policy</string>
     <string name="warning_content_description">Warning - bubble inaccessible</string>
     <string name="feedback_nothing_found">No app found to send the feedback.</string>
-    <string name="menu_policy">Privacy policy</string>
     <string name="policy_licensed">Licensed under GNU GPL 3</string>
+
+    <string name="developers_social_links_label">Developer\'s social networks</string>
+
+    <string name="show_again">Show again</string>
+    <string name="how_to_use">How to use</string>
+    <string name="uninstall">Uninstall</string>
+    <string name="ok_timed_any">OK (%d)</string>
+    <string name="ok_timed_none">OK</string>
+    <string name="explanation">
+This is important! Read the full article, please.
+\n\n
+When you click the „Click me“ button, a notification will be posted. Click on the „Show as bubble“ symbol.
+You can also place a shortcut to your home screen.
+\n\n
+When a bubble is shown, you can click PLUS symbol and choose whatever contact system shows.
+\n\n
+If there is NO PLUS symbol next to the bubble, this app is useless for you and you can uninstall it.
+It is caused by some Android vendors wrongly implementing the bubbles API from Google,
+it is not fault of this app so please don\'t leave bad reviews on Play Store. Have a nice day.
+    </string>
+    <string name="plus_sign_example">Plus sign example</string>
 
 </resources>

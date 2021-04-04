@@ -30,7 +30,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:orientation="vertical"
-        app:constraint_referenced_ids="thanks,buttons_flow,social_flow"
+        app:constraint_referenced_ids="thanks,buttons_flow,socials"
         app:flow_verticalGap="@dimen/text_spacing"
         app:layout_constraintBottom_toTopOf="@+id/author"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,44 +63,11 @@
         android:layout_height="wrap_content"
         android:text="@string/share" />
 
-    <androidx.constraintlayout.helper.widget.Flow
-        android:id="@+id/social_flow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:constraint_referenced_ids="facebook,github,playStore,telegram"
-        app:flow_horizontalGap="8dp"
-        tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="446dp" />
+    <include
+        android:id="@+id/socials"
+        layout="@layout/socials" />
 
-    <ImageView
-        android:id="@+id/facebook"
-        android:layout_width="@dimen/social_icons_size"
-        android:layout_height="@dimen/social_icons_size"
-        android:contentDescription="@string/content_description_facebook"
-        app:srcCompat="@drawable/ic_facebook" />
-
-    <ImageView
-        android:id="@+id/github"
-        android:layout_width="@dimen/social_icons_size"
-        android:layout_height="@dimen/social_icons_size"
-        android:contentDescription="@string/content_description_github_project"
-        app:srcCompat="@drawable/ic_github" />
-
-    <ImageView
-        android:id="@+id/playStore"
-        android:layout_width="@dimen/social_icons_size"
-        android:layout_height="@dimen/social_icons_size"
-        android:contentDescription="@string/content_description_play_store"
-        app:srcCompat="@drawable/ic_play_store" />
-
-    <ImageView
-        android:id="@+id/telegram"
-        android:layout_width="@dimen/social_icons_size"
-        android:layout_height="@dimen/social_icons_size"
-        android:contentDescription="@string/content_description_telegram"
-        app:srcCompat="@drawable/ic_telegram" />
-
-    <cz.lastaapps.author.AuthorDateView
+    <cz.lastaapps.bubble.views.AuthorDateView
         android:id="@+id/author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

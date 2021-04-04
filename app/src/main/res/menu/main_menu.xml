@@ -18,8 +18,21 @@
   ~
   -->
 
-<resources>
-    <string name="author_name" translatable="false">Lasta apps</string>
-    <string name="author_date" translatable="false">Lasta apps %s</string>
-    <string name="author_date_format" translatable="false">yyyy</string>
-</resources>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_feedback"
+        android:title="@string/menu_feedback"
+        android:icon="@drawable/feedback"
+        app:showAsAction="withText" />
+    <item
+        android:id="@+id/menu_policy"
+        android:title="@string/menu_policy"
+        android:icon="@drawable/policy"
+        app:showAsAction="withText" />
+    <item
+        android:id="@+id/menu_explain"
+        android:title="@string/menu_explain"
+        android:icon="@drawable/explained"
+        app:showAsAction="withText" />
+</menu>

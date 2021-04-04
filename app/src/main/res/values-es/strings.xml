@@ -53,4 +53,27 @@
     <string name="feedback_nothing_found">No se encontró ninguna aplicación para enviar comentarios.</string>
     <string name="menu_policy">Política de privacidad</string>
     <string name="policy_licensed">Licenciado bajo GNU GPL 3</string>
+    <string name="ok_timed_any">OK (%d)</string>
+    <string name="ok_timed_none">OK</string>
+    <string name="uninstall">Desinstalar</string>
+    <string name="how_to_use">Cómo utilizar</string>
+    <string name="show_again">Enseña otra vez</string>
+    <string name="developers_social_links_label">Redes sociales del desarrollador</string>
+    <string name="menu_explain">Manual</string>
+    <string name="explanation">
+La aplicación se ha traducido con el traductor, perdone los pequeños errores de idioma. Gracias.
+
+¡Esto es importante! Lea el mensaje completo, por favor.
+\n\n
+Al hacer clic en el botón „Hacer clic en mí“, se publicará una notificación.
+Haga clic en el símbolo „Mostrar como burbuja“.
+También puede colocar un acceso directo a su pantalla de inicio.
+\n\n
+Cuando se muestra una burbuja, puede hacer clic en el símbolo MÁS y elegir el sistema de contacto que muestre.
+\n\n
+Si NO hay un símbolo PLUS junto a la burbuja, esta aplicación es inútil para usted y puede desinstalarla.
+Es causado por algunos proveedores de Android que implementaron incorrectamente la API de burbujas de Google,
+No es culpa de esta aplicación, así que no dejes malas críticas en Play Store. Que tenga un lindo día.
+    </string>
+    <string name="plus_sign_example">Ejemplo de signo más</string>
 </resources>

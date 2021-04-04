@@ -15,35 +15,24 @@
  *
  *     You should have received a copy of the GNU General Public License
  *     along with The Bubble Opener.  If not, see <https://www.gnu.org/licenses/>.
- *  
+ *
  */
 
-package cz.lastaapps.author
+package cz.lastaapps.bubble.core
 
-import android.content.Context
-import android.util.AttributeSet
-import cz.lastaapps.common.DeveloperInfo
+import android.app.Application
 
-class AuthorDateView : AuthorView {
+/**Holds a static context reference for the whole app*/
+class App : Application() {
 
     companion object {
-        private val TAG = AuthorDateView::class.simpleName
+        lateinit var app: App
+        val context get() = app
     }
 
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
-        context,
-        attrs,
-        defStyleAttr
-    )
+    override fun onCreate() {
+        super.onCreate()
 
-    constructor(
-        context: Context,
-        attrs: AttributeSet?,
-        defStyleAttr: Int,
-        defStyleRes: Int
-    ) : super(context, attrs, defStyleAttr, defStyleRes)
-
-    override fun getAuthorText(): String = DeveloperInfo.getNameAndBuildYear(context)
+        app = this
+    }
 }

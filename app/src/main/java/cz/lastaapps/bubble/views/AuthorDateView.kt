@@ -18,15 +18,13 @@
  *  
  */
 
-package cz.lastaapps.author
+package cz.lastaapps.bubble.views
 
 import android.content.Context
 import android.util.AttributeSet
-import android.widget.TextView
-import com.google.android.material.textview.MaterialTextView
 import cz.lastaapps.common.DeveloperInfo
 
-open class AuthorView : MaterialTextView {
+class AuthorDateView : AuthorView {
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -43,12 +41,5 @@ open class AuthorView : MaterialTextView {
         defStyleRes: Int
     ) : super(context, attrs, defStyleAttr, defStyleRes)
 
-    init {
-        textAlignment = TextView.TEXT_ALIGNMENT_CENTER
-
-        text = getAuthorText()
-    }
-
-    open fun getAuthorText(): String = DeveloperInfo.getName(context)
-
+    override fun getAuthorText(): String = DeveloperInfo.getNameAndBuildYear(context)
 }

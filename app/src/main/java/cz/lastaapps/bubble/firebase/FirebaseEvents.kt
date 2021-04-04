@@ -18,7 +18,7 @@
  *
  */
 
-package cz.lastaapps.bubble
+package cz.lastaapps.bubble.firebase
 
 import android.content.Context
 import android.os.Bundle
@@ -29,7 +29,7 @@ import com.google.firebase.analytics.FirebaseAnalytics
 class FirebaseEvents(context: Context) {
 
     companion object {
-        private val TAG = FirebaseEvents::class.simpleName
+        private val TAG get() = FirebaseEvents::class.simpleName
     }
 
     fun homeShortcutAdded() = post("home_shortcut", "home_shortcut_created", "Home shortcut added")
@@ -43,6 +43,9 @@ class FirebaseEvents(context: Context) {
     fun buttonLastaRepo() = post("button_click", "button_lasta_repo", "Lasta Apps repo")
     fun buttonPlayStore() = post("button_click", "button_play_store", "Play store")
     fun buttonTelegram() = post("button_click", "button_telegram", "Telegram")
+
+    fun explainOK() = post("explain", "button_ok", "OK")
+    fun explainUninstall() = post("explain", "button_uninstall", "Uninstall")
 
     private val firebase = FirebaseAnalytics.getInstance(context)
 

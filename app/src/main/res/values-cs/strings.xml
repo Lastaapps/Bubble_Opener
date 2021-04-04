@@ -48,9 +48,32 @@
     <string name="policy_have_read">Přečetl jsem si je</string>
     <string name="policy_agree">Souhlasím</string>
     <string name="policy_read_privacy_policy">Přečíst si Zásady ochrany osobních údajů</string>
-    <string name="warning_content_description">Varování - bubliny nedostupné</string>
+    <string name="warning_content_description">Varování – bubliny nedostupné</string>
     <string name="feedback_nothing_found">Nebyla nalezena aplikace pro odeslání zpětné vazby</string>
     <string name="policy_licensed">Licencováno pod GNU GPL 3</string>
     <string name="policy_nutshell">Prostě řečeno, sbíráme pouze základní anonymní informace o využití funkcí aplikace a o jejích chybách a pádech pomocí služby Firebase. Údaje jsou nutné k správnému vývoji aplikace. Klidně se mrkněte do zdrojového kódu ;)</string>
     <string name="add_shortcut">Přidat zástupce na domovskou obrazovku</string>
+    <string name="menu_explain">Návod</string>
+    <string name="developers_social_links_label">Vývojářovy sociální sítě</string>
+    <string name="show_again">Zobrazit znovu</string>
+    <string name="how_to_use">Jak používat</string>
+    <string name="uninstall">Odinstalovat</string>
+    <string name="ok_timed_any">OK (%d)</string>
+    <string name="ok_timed_none">OK</string>
+    <string name="explanation">
+Důležité! Přečtěte si prosím celé sdělení.
+\n\n
+Když kliknete na tlačítko, přijde vám oznámení.
+V něm klikněte na symbol „zobrazit jako bublinu“.
+Pro zrychlení si můžete přidat zástupce na domovskou obrazovku.
+\n\n
+Když se vám zobrazí bublina, klikněte na tlačítko se symbolem PLUS a vyberte hned konverzaci
+s lidmi, které vám systém nabídne.
+\n\n
+Pokud se vám vedle bublin nezobrazuje ŽÁDNÝ symbol PLUS, tato aplikace na vašem zařízení postrádá smysl a
+můžete ji odinstalovat. Některý výrobci Android zařízení špatně použijí funkce od Googlu,
+a pak to končí takhle… Nejde o chybu aplikace, proto prosím nepiště na Google Play negativní
+recenze. Děkuji za přečtení a přeji hezký den.
+    </string>
+    <string name="plus_sign_example">Ukázka plus symbolu</string>
 </resources>

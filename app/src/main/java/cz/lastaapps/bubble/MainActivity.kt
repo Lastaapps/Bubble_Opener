@@ -32,14 +32,24 @@ import androidx.constraintlayout.helper.widget.Flow
 import androidx.core.content.pm.ShortcutInfoCompat
 import androidx.core.content.pm.ShortcutManagerCompat
 import androidx.core.graphics.drawable.IconCompat
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
+import cz.lastaapps.bubble.core.FeedbackActivity
+import cz.lastaapps.bubble.explain.ExplainDialog
+import cz.lastaapps.bubble.explain.ExplainRepo
+import cz.lastaapps.bubble.firebase.FirebaseEvents
+import cz.lastaapps.bubble.notifications.DummyShowNotificationActivity
+import cz.lastaapps.bubble.notifications.Notifier
+import cz.lastaapps.bubble.policy.PolicyDialog
+import cz.lastaapps.bubble.policy.PolicyManager
 
 
 /**Shows the main content of the app*/
 class MainActivity : FeedbackActivity() {
 
     companion object {
-        private val TAG = MainActivity::class.simpleName
+        private val TAG get() = MainActivity::class.simpleName
 
         private const val SHORTCUT_ID = "home_screen_shortcut"
     }
@@ -52,8 +62,28 @@ class MainActivity : FeedbackActivity() {
         setContentView(R.layout.activity_main)
 
         if (!PolicyManager(this).hasAgreed()) {
-            if (supportFragmentManager.fragments.none { it.tag == PolicyDialog.TAG })
-                PolicyDialog().show(supportFragmentManager, PolicyDialog.TAG)
+            val fragmentTag = PolicyDialog.TAG
+
+            if (supportFragmentManager.findFragmentByTag(fragmentTag) == null)
+                PolicyDialog().show(supportFragmentManager, fragmentTag)
+
+            //show an explain dialog after privacy policy is hidden
+            supportFragmentManager.registerFragmentLifecycleCallbacks(
+                object : FragmentManager.FragmentLifecycleCallbacks() {
+                    override fun onFragmentDetached(fm: FragmentManager, f: Fragment) {
+                        if (supportFragmentManager.findFragmentByTag(fragmentTag) == null) {
+                            if (ExplainRepo.shouldShow()) {
+                                showExplain()
+                            }
+                            supportFragmentManager.unregisterFragmentLifecycleCallbacks(this)
+                        }
+                    }
+                }, true
+            )
+        } else {
+            if (ExplainRepo.shouldShow()) {
+                showExplain()
+            }
         }
 
         //shows a bubble
@@ -99,6 +129,12 @@ class MainActivity : FeedbackActivity() {
         }
     }
 
+    private fun showExplain() {
+        if (supportFragmentManager.findFragmentByTag(ExplainDialog.TAG) == null)
+            ExplainDialog().also { it.arguments = ExplainDialog.createRequestBundle(true) }
+                .show(supportFragmentManager, ExplainDialog.TAG)
+    }
+
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
 
@@ -113,9 +149,11 @@ class MainActivity : FeedbackActivity() {
         val info = ShortcutInfoCompat.Builder(context, SHORTCUT_ID)
             .setIcon(IconCompat.createWithResource(context, R.mipmap.persons_face))
             .setShortLabel(context.getString(R.string.pinned_shortcut_text))
-            .setIntent(Intent(context, DummyShowNotificationActivity::class.java).apply {
-                action = Intent.ACTION_VIEW
-            })
+            .setIntent(
+                Intent(context, DummyShowNotificationActivity::class.java).apply {
+                    action = Intent.ACTION_VIEW
+                }
+            )
             .build()
 
         FirebaseEvents(context).homeShortcutAdded()

@@ -24,10 +24,13 @@ buildscript {
         kotlin_version = '1.4.31'
         desugar_version = '1.1.5'
 
-        appcompat_version = '1.3.0-beta01'
+        //androidx
+        activity_version = '1.2.2'
+        appcompat_version = '1.3.0-rc01'
         constraintlayout_version = '2.0.4'
         core_version = '1.3.2'
-
+        fragment_version = '1.3.2'
+        lifecycle_version = '2.3.1'
 
         //google
         material_version = '1.3.0'
@@ -36,13 +39,16 @@ buildscript {
 
         firebase_bom_version = '26.4.0'
 
+        //coroutines
+        coroutines_version = '1.4.3-native-mt'
+
         //testing
         junit_version = '4.13.2'
         androidx_junit_version = '1.1.2'
         espresso_core_version = '3.3.0'
 
         //root class paths
-        gradle_version = '7.0.0-alpha10'
+        gradle_version = '7.0.0-alpha12'
         google_services_version = '4.3.4'
         firebase_gradle_crashlytics_version = '2.4.1'
         oss_license_plugin_version = '0.10.2'

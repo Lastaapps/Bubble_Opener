@@ -98,7 +98,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <cz.lastaapps.author.AuthorDateView
+    <cz.lastaapps.bubble.views.AuthorDateView
         android:id="@+id/author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

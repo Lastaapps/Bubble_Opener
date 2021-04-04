@@ -18,18 +18,24 @@
  *
  */
 
-package cz.lastaapps.bubble
+package cz.lastaapps.bubble.explain
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
+import cz.lastaapps.bubble.core.App
 
-/**Removes the SplashScreen style and uses the basic one*/
-open class SplashActivity : AppCompatActivity() {
+object ExplainRepo {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private const val SP_NAME = "EXPLAINED"
+    private const val KEY_SHOWN = "SHOWN"
 
-        setTheme(R.style.Theme_BubbleOpener)
-    }
+    private fun getSP() = App.context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE)
+
+    fun isShown(): Boolean = getSP().getBoolean(KEY_SHOWN, false)
+    fun setShown(value: Boolean) = getSP().edit().putBoolean(KEY_SHOWN, value).apply()
+
+    /**
+     * @return if an explain dialog should be shown at the startup
+     * */
+    fun shouldShow() = !isShown()
 
 }

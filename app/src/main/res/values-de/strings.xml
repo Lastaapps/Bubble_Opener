@@ -53,4 +53,25 @@
     <string name="menu_policy">Datenschutz-Bestimmungen</string>
     <string name="policy_licensed">Lizenziert unter GNU GPL 3</string>
     <string name="policy_nutshell">Einfach ausgedrückt, wir sammeln nur grundlegende anonyme Informationen über die Verwendung von Anwendungsfunktionen und deren Fehler und Abstürze mit dem Firebase-Dienst. Die Daten sind für die ordnungsgemäße Entwicklung erforderlich der Anwendung. Fühlen Sie sich frei, einen Blick auf den Quellcode zu werfen ;)</string>
+    <string name="menu_explain">Handbuch</string>
+    <string name="developers_social_links_label">Soziale Netzwerke des Entwicklers</string>
+    <string name="show_again">Erneut anzeigen</string>
+    <string name="how_to_use">Wie benutzt man</string>
+    <string name="uninstall">Deinstallieren</string>
+    <string name="ok_timed_any">OK (%d)</string>
+    <string name="ok_timed_none">OK</string>
+    <string name="explanation">
+Das ist wichtig! Lesen Sie bitte die vollständige Nachricht.
+\n\n
+Wenn Sie auf die Schaltfläche „Klick mich“ klicken, wird eine Benachrichtigung veröffentlicht.
+Klicken Sie auf das Symbol „Als Blase anzeigen“.
+Sie können auch eine Verknüpfung zu Ihrem Startbildschirm erstellen.
+\n\n
+Wenn eine Blase angezeigt wird, können Sie auf das PLUS-Symbol klicken und das gewünschte Kontaktsystem auswählen.
+\n\n
+Wenn sich neben der Blase kein NO PLUS-Symbol befindet, ist diese App für Sie nutzlos und Sie können sie deinstallieren.
+Es wird von einigen Android-Anbietern verursacht, die Bubbles-API von Google falsch implementiert haben.
+Es ist kein Fehler dieser App, also hinterlasse bitte keine schlechten Bewertungen im Play Store. Einen schönen Tag noch.
+    </string>
+    <string name="plus_sign_example">Pluszeichen Beispiel</string>
 </resources>

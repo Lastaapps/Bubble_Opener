@@ -18,7 +18,7 @@
  *
  */
 
-package cz.lastaapps.bubble
+package cz.lastaapps.bubble.core
 
 import android.app.Activity
 import android.app.ApplicationErrorReport
@@ -27,16 +27,19 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import cz.lastaapps.bubble.R
+import cz.lastaapps.bubble.explain.ExplainDialog
+import cz.lastaapps.bubble.policy.ShowPolicesActivity
 
 /**Adds send feedback option to the option menu*/
 open class FeedbackActivity : SplashActivity() {
 
     companion object {
-        private val TAG = FeedbackActivity::class.simpleName
+        private val TAG get() = FeedbackActivity::class.simpleName
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.feedback_menu, menu)
+        menuInflater.inflate(R.menu.main_menu, menu)
 
         return super.onCreateOptionsMenu(menu)
     }
@@ -57,6 +60,12 @@ open class FeedbackActivity : SplashActivity() {
             }
             R.id.menu_policy -> {
                 startActivity(Intent(this, ShowPolicesActivity::class.java))
+            }
+            R.id.menu_explain -> {
+                val fragmentTag = ExplainDialog.TAG
+                if (supportFragmentManager.findFragmentByTag(fragmentTag) == null)
+                    ExplainDialog().also { it.arguments = ExplainDialog.createRequestBundle(false) }
+                        .show(supportFragmentManager, fragmentTag)
             }
             else -> return super.onOptionsItemSelected(item)
         }

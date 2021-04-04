@@ -18,32 +18,19 @@
  *
  */
 
-package cz.lastaapps.bubble
+package cz.lastaapps.bubble.core
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import cz.lastaapps.bubble.R
 
-/**Only an activity can be opened from a shortcut, so this activity is needed to show a bubble
- * This activity is fully transparent
- */
-class DummyShowNotificationActivity : AppCompatActivity() {
-
-    companion object {
-        private val TAG = DummyShowNotificationActivity::class.simpleName
-    }
+/**Removes the SplashScreen style and uses the basic one*/
+open class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Log.i(TAG, "Creating activity")
-
-        //posts notification
-        Notifier.notify(this)
-
-        //notifies Firebase
-        FirebaseEvents(this).notificationFromShortcut()
-
-        finish()
+        setTheme(R.style.Theme_BubbleOpener)
     }
+
 }
