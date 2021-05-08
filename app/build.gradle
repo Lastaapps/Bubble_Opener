@@ -35,8 +35,8 @@ android {
         applicationId "cz.lastaapps.bubble"
         minSdkVersion 30
         targetSdkVersion 30
-        versionCode 10102
-        versionName "1.1.2"
+        versionCode 10200
+        versionName "1.2.0"
 
         resConfigs "en", "cs", "de", "es"
 
