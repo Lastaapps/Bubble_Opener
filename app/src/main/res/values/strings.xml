@@ -85,5 +85,6 @@ It is caused by some Android vendors wrongly implementing the bubbles API from G
 it is not fault of this app so please don\'t leave bad reviews on Play Store. Have a nice day.
     </string>
     <string name="plus_sign_example">Plus sign example</string>
+    <string name="as_bubble_example">Show as a bubble</string>
 
 </resources>

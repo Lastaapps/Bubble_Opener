@@ -76,4 +76,5 @@ Es causado por algunos proveedores de Android que implementaron incorrectamente 
 No es culpa de esta aplicación, así que no dejes malas críticas en Play Store. Que tenga un lindo día.
     </string>
     <string name="plus_sign_example">Ejemplo de signo más</string>
+    <string name="as_bubble_example">Mostrar como una burbuja</string>
 </resources>

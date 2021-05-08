@@ -39,6 +39,7 @@ import cz.lastaapps.bubble.core.FeedbackActivity
 import cz.lastaapps.bubble.explain.ExplainDialog
 import cz.lastaapps.bubble.explain.ExplainRepo
 import cz.lastaapps.bubble.firebase.FirebaseEvents
+import cz.lastaapps.bubble.notifications.CanBubbleStates
 import cz.lastaapps.bubble.notifications.DummyShowNotificationActivity
 import cz.lastaapps.bubble.notifications.Notifier
 import cz.lastaapps.bubble.policy.PolicyDialog
@@ -127,6 +128,10 @@ class MainActivity : FeedbackActivity() {
             OssLicensesMenuActivity.setActivityTitle(getString(R.string.licenses_title))
             startActivity(Intent(this, OssLicensesMenuActivity::class.java))
         }
+
+        findViewById<Flow>(R.id.warning_flow).setOnClickListener {
+            startActivity(Intent(Settings.ACTION_APP_NOTIFICATION_BUBBLE_SETTINGS))
+        }
     }
 
     private fun showExplain() {
@@ -139,8 +144,7 @@ class MainActivity : FeedbackActivity() {
         super.onWindowFocusChanged(hasFocus)
 
         //updates bubbles disabled warning visibility
-        findViewById<Flow>(R.id.warning_flow).visibility = View.GONE //seems to work all the time
-        //if (Notifier.canBubble(this) == CanBubbleStates.CANNOT) View.VISIBLE else View.GONE
+        if (Notifier.canBubble(this) != CanBubbleStates.CAN) View.VISIBLE else View.GONE
     }
 
     /**Puts a shortcut to the home screen*/

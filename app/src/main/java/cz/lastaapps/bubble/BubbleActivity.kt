@@ -21,16 +21,14 @@
 package cz.lastaapps.bubble
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.Toast
-import com.google.android.play.core.review.ReviewManagerFactory
 import cz.lastaapps.bubble.core.FeedbackActivity
 import cz.lastaapps.bubble.firebase.FirebaseEvents
 import cz.lastaapps.common.Communication
+import cz.lastaapps.common.PlayStoreReview
 
 /**The content of a bubble*/
 class BubbleActivity : FeedbackActivity() {
@@ -51,7 +49,7 @@ class BubbleActivity : FeedbackActivity() {
         findViewById<Button>(R.id.rate).setOnClickListener {
             Log.i(TAG, "Button clicked Rate")
 
-            rate()
+            PlayStoreReview.doInAppReview(this)
 
             FirebaseEvents(this).buttonRate()
         }
@@ -91,43 +89,6 @@ class BubbleActivity : FeedbackActivity() {
             FirebaseEvents(this).buttonTelegram()
         }
 
-    }
-
-    private fun rate() {
-        val manager = ReviewManagerFactory.create(this)
-
-        //redirects to the play store, required under LOLLIPOP 5.0 and when Google play
-        //API fails
-        val oldRequest = {
-            val url = "https://play.google.com/store/apps/details?id=cz.lastaapps.bubble"
-            val uri = Uri.parse(url)
-            startActivity(Intent(Intent.ACTION_VIEW, uri))
-        }
-
-        //version check
-        /*if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            oldRequest()
-            return
-        }*/
-
-        //Google play in app review
-        val request = manager.requestReviewFlow()
-        request.addOnCompleteListener { result ->
-            if (result.isSuccessful) {
-
-                val reviewInfo = result.result
-                val flow = manager.launchReviewFlow(this, reviewInfo)
-                flow.addOnCompleteListener {
-                    Toast.makeText(
-                        this,
-                        R.string.thanks_review,
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-            } else {
-                oldRequest()
-            }
-        }
     }
 
     private fun share() {

@@ -57,25 +57,34 @@
                 android:layout_marginBottom="8dp"
                 android:fontFamily="serif"
                 android:text="@string/explanation"
-                app:layout_constraintBottom_toTopOf="@id/plus_img"
+                app:layout_constraintBottom_toTopOf="@id/help_images_flow"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/label" />
+
+
+            <androidx.constraintlayout.helper.widget.Flow
+                android:id="@+id/help_images_flow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:constraint_referenced_ids="plus_flow,as_bubble_flow"
+                app:flow_horizontalGap="8dp"
+                app:layout_constraintBottom_toTopOf="@id/buttons_flow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
 
             <androidx.constraintlayout.helper.widget.Flow
                 android:id="@+id/plus_flow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
                 android:orientation="vertical"
-                app:constraint_referenced_ids="plus_img,plus_label"
-                app:layout_constraintBottom_toTopOf="@id/buttons_flow"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:constraint_referenced_ids="plus_img,plus_label" />
 
             <ImageView
                 android:id="@+id/plus_img"
-                android:layout_width="wrap_content"
+                android:layout_width="128dp"
                 android:layout_height="64dp"
                 android:contentDescription="@string/plus_sign_example"
                 app:srcCompat="@drawable/plus_symbol_preview" />
@@ -86,6 +95,40 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/plus_sign_example" />
+
+            <androidx.constraintlayout.helper.widget.Flow
+                android:id="@+id/as_bubble_flow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="vertical"
+                app:constraint_referenced_ids="as_bubble_img,as_bubble_label" />
+
+            <ImageView
+                android:id="@+id/as_bubble_img"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:contentDescription="@string/as_bubble_example"
+                app:srcCompat="@drawable/as_bubble_icon" />
+
+            <TextView
+                android:id="@+id/as_bubble_label"
+                style="@style/TextAppearance.MaterialComponents.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/as_bubble_example" />
+
+
+            <androidx.constraintlayout.helper.widget.Flow
+                android:id="@+id/buttons_flow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="uninstall,ok_timed"
+                app:flow_horizontalGap="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <Button
                 android:id="@+id/ok_timed"
@@ -99,16 +142,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/uninstall" />
-
-            <androidx.constraintlayout.helper.widget.Flow
-                android:id="@+id/buttons_flow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:constraint_referenced_ids="uninstall,ok_timed"
-                app:flow_horizontalGap="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>

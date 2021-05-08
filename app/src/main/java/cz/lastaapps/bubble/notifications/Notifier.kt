@@ -64,6 +64,10 @@ object Notifier {
 
     /**@return if bubbles are available*/
     fun canBubble(context: Context): CanBubbleStates {
+
+        initChannel(context)
+        createShortcut(context)
+
         val old = NotificationManagerCompat.from(context)
             .getNotificationChannelCompat(channelId, shortcutId)
 
@@ -100,31 +104,10 @@ object Notifier {
     /**creates and posts a bubble notification*/
     private fun createNotification(context: Context) {
 
-        @SuppressLint("ObsoleteSdkInt")
-        //the main icon, should be adaptive
-        val icon = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
-            IconCompat.createWithResource(context, R.mipmap.persons_face)
-        else
-            IconCompat.createWithResource(context, R.mipmap.persons_face_foreground)
+        val icon = getIcon(context)
+        val person = getPerson(context)
 
-        //the persons name
-        val person = Person.Builder()
-            .setName(context.getString(R.string.notification_name))
-            .setIcon(icon)
-            .build()
-
-        //shortcut to a specific person
-        val shortcut = ShortcutInfoCompat.Builder(context, shortcutId)
-            .setLongLived(true)
-            .setLocusId(LocusIdCompat(shortcutId))
-            .setIntent(createIntent(context, DummyShowNotificationActivity::class))
-            .setShortLabel(context.getString(R.string.notification_label))
-            .setIcon(icon)
-            .setPerson(person)
-            //.setCategories(setOf(ShortcutInfo.SHORTCUT_CATEGORY_CONVERSATION)) //for the share feature
-            .build()
-
-        ShortcutManagerCompat.pushDynamicShortcut(context, shortcut)
+        createShortcut(context)
 
         @SuppressLint("ObsoleteSdkInt")
         //metadata for a bubble
@@ -167,6 +150,51 @@ object Notifier {
             .notify(notificationId, notification)
 
     }
+
+    /**
+     * Register system person shortcut
+     * */
+    private fun createShortcut(context: Context) {
+
+        val icon = getIcon(context)
+        val person = getPerson(context)
+
+        //shortcut to a specific person
+        val shortcut = ShortcutInfoCompat.Builder(context, shortcutId)
+            .setLongLived(true)
+            .setLocusId(LocusIdCompat(shortcutId))
+            .setIntent(createIntent(context, DummyShowNotificationActivity::class))
+            .setShortLabel(context.getString(R.string.notification_label))
+            .setIcon(icon)
+            .setPerson(person)
+            //.setCategories(setOf(ShortcutInfo.SHORTCUT_CATEGORY_CONVERSATION)) //for the share feature
+            .build()
+
+        ShortcutManagerCompat.pushDynamicShortcut(context, shortcut)
+    }
+
+    /**
+     * @return Icon of the notification person
+     * */
+    private fun getIcon(context: Context): IconCompat {
+        //the main icon, should be adaptive
+        @Suppress("UnnecessaryVariable")
+        @SuppressLint("ObsoleteSdkInt")
+        val icon = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
+            IconCompat.createWithResource(context, R.mipmap.persons_face)
+        else
+            IconCompat.createWithResource(context, R.mipmap.persons_face_foreground)
+
+        return icon
+    }
+
+    /**
+     * @return person object to be registered in system and used in a notification
+     * */
+    private fun getPerson(context: Context) = Person.Builder()
+        .setName(context.getString(R.string.notification_name))
+        .setIcon(getIcon(context))
+        .build()
 
     /**@return PendingIntent for the Intent given*/
     private fun createPending(context: Context, intent: Intent) =
